@@ -17,10 +17,10 @@ function App() {
   ];
 
   const pointImages = [
-    "public/Agbokim Falls.jpeg",
-    "public/Agbokim Falls.jpeg",
-    "public/Agbokim Falls.jpeg",
-    "public/Agbokim Falls.jpeg",
+    "Agbokim Falls.jpeg",
+    "Agbokim Falls.jpeg",
+    "Agbokim Falls.jpeg",
+    "Agbokim Falls.jpeg",
   ];
 
   const container = document.querySelector(".image");
