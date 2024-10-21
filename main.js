@@ -17,10 +17,10 @@ function App() {
   ];
 
   const pointImages = [
-    "Agbokim Falls.jpeg",
-    "Agbokim Falls.jpeg",
-    "Agbokim Falls.jpeg",
-    "Agbokim Falls.jpeg",
+    "Mpape-Crushed-rock.jpeg",
+    "Mpape-Crushed-rock.jpeg",
+    "Mpape-Crushed-rock.jpeg",
+    "Mpape-Crushed-rock.jpeg",
   ];
 
   const container = document.querySelector(".image");
@@ -72,7 +72,7 @@ function App() {
     const geometry = new THREE.CircleGeometry(0.3, 32);
     const material = new THREE.MeshBasicMaterial({
       map: texture,
-      transparent: true,
+      // transparent: true,
     });
 
     const plane = new THREE.Mesh(geometry, material);
