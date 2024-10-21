@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>360 Video with Three.js</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        margin: 0;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div
+        id="hover-content"
+        style="
+          position: absolute;
+          display: none;
+          background-color: rgb(30, 30, 30, 0.8);
+          color: white;
+          border-radius: 50px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          padding: 5px;
+          z-index: 100;
+        "
+      ></div>
+
+      <div id="rotate-message" class="rotate-message">
+        Please rotate your device to landscape mode for the best experience.
+      </div>
+
+      <div class="image"></div>
+
+      <div class="virtual-title">ABUJA CENTRAL MOSQUE</div>
+      <div class="buttom">
+        <span title="Home">
+          <i class="fa fa-home" aria-hidden="true"></i>
+        </span>
+        <span title="Start Auto Tour" class="tour">
+          <i class="fa fa-play" aria-hidden="true"></i>
+        </span>
+        <span title="Share" class="share">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+        <span title="Enter Full Screen" class="screen-size">
+          <svg
+            width="800px"
+            height="800px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 1.5C2.61929 1.5 1.5 2.61929 1.5 4V8.5C1.5 9.05228 1.94772 9.5 2.5 9.5H3.5C4.05228 9.5 4.5 9.05228 4.5 8.5V4.5H8.5C9.05228 4.5 9.5 4.05228 9.5 3.5V2.5C9.5 1.94772 9.05228 1.5 8.5 1.5H4Z"
+              fill="#000000"
+            />
+            <path
+              d="M20 1.5C21.3807 1.5 22.5 2.61929 22.5 4V8.5C22.5 9.05228 22.0523 9.5 21.5 9.5H20.5C19.9477 9.5 19.5 9.05228 19.5 8.5V4.5H15.5C14.9477 4.5 14.5 4.05228 14.5 3.5V2.5C14.5 1.94772 14.9477 1.5 15.5 1.5H20Z"
+              fill="#000000"
+            />
+            <path
+              d="M20 22.5C21.3807 22.5 22.5 21.3807 22.5 20V15.5C22.5 14.9477 22.0523 14.5 21.5 14.5H20.5C19.9477 14.5 19.5 14.9477 19.5 15.5V19.5H15.5C14.9477 19.5 14.5 19.9477 14.5 20.5V21.5C14.5 22.0523 14.9477 22.5 15.5 22.5H20Z"
+              fill="#000000"
+            />
+            <path
+              d="M1.5 20C1.5 21.3807 2.61929 22.5 4 22.5H8.5C9.05228 22.5 9.5 22.0523 9.5 21.5V20.5C9.5 19.9477 9.05228 19.5 8.5 19.5H4.5V15.5C4.5 14.9477 4.05228 14.5 3.5 14.5H2.5C1.94772 14.5 1.5 14.9477 1.5 15.5V20Z"
+              fill="#000000"
+            />
+          </svg>
+        </span>
+        <span title="Help" class="help">
+          <i class="fa fa-question" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="powered">
+        <small>Powered by</small>
+        <img src="logo.jpg" alt="" />
+      </div>
+      <div class="cover"></div>
+      <div class="controls-options">
+        <div class="close-controls-options">
+          <i class="fa fa-times" aria-hidden="true" title="Close"></i>
+        </div>
+        <div class="controls-options-title">ALL CONTROLS</div>
+        <div class="controls-options-content-cont">
+          <div class="controls-options-content-header">
+            <span>Orbit navigation</span>
+          </div>
+          <div class="controls-options-content">
+            <ul class="controls-options-types-navs">
+              <li>
+                <span>Move camera:</span>
+                <small>Double click and hold to move</small>
+              </li>
+
+              <li>
+                <span>Pan:</span>
+                <small>
+                  2-finger drag or Right Mouse Button + Cursor Movement
+                </small>
+              </li>
+              <li>
+                <span>Zoom on object:</span>
+                <small>For now we can not Zoom</small>
+              </li>
+
+              <li>
+                <span>Zoom out:</span>
+                <small> For now we can not Zoom </small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="share-links-cont"></div>
+    </section>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
