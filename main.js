@@ -147,6 +147,60 @@ function App() {
       (-mouse.y * window.innerHeight) / 2 + window.innerHeight / 2 - height / 2
     }px`;
   }
+
+  function onTouchStart(event) {
+    // Convert touch coordinates to the same normalized values used for mouse hover
+    const touch = event.touches[0];
+    mouse.x = (touch.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(touch.clientY / window.innerHeight) * 2 + 1;
+
+    // Trigger the same behavior as hover when touching
+    handleInteraction();
+  }
+
+  function onTouchEnd() {
+    // Simulate hover end by hiding content or resetting the point image
+    const contentElement = document.getElementById("hover-content");
+    contentElement.style.display = "none";
+
+    // Reset point scales
+    points.forEach((point) => {
+      gsap.to(point.scale, { x: 1, y: 1, duration: 0.5 });
+    });
+  }
+
+  function handleInteraction() {
+    // Update raycaster with camera and mouse/touch position
+    raycaster.setFromCamera(mouse, camera);
+
+    // Calculate objects intersecting with the ray
+    const intersects = raycaster.intersectObjects(points);
+
+    // Reset point scales and content
+    points.forEach((point) => {
+      gsap.to(point.scale, { x: 1, y: 1, duration: 0.5 });
+    });
+    const contentElement = document.getElementById("hover-content");
+    contentElement.style.display = "none"; // Hide content initially
+
+    // If an intersection is detected, simulate hover effect
+    if (intersects.length > 0) {
+      const intersectedPoint = intersects[0].object;
+
+      // Scale up the intersected point
+      gsap.to(intersectedPoint.scale, { x: 1.5, y: 1.5, duration: 0.5 });
+
+      // Display content for the intersected point
+      displayContent(intersectedPoint.userData.label);
+    }
+  }
+
+  // Add the touch event listeners
+  window.addEventListener("touchstart", onTouchStart);
+  window.addEventListener("touchend", onTouchEnd);
+
+  // Also, keep the existing mousemove event
+  window.addEventListener("mousemove", onMouseMove);
 }
 
 App();
