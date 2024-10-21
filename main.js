@@ -149,18 +149,4 @@ function App() {
   }
 }
 
-function checkOrientation() {
-  if (window.innerHeight > window.innerWidth) {
-    // Show the message when the device is in portrait mode
-
-    document.getElementById("rotate-message").style.display = "flex";
-  } else {
-    // Hide the message when the device is in landscape mode
-    App();
-
-    document.getElementById("rotate-message").style.display = "none";
-  }
-}
-
-// Add an event listener for when the orientation changes
-window.addEventListener("resize", checkOrientation);
+App();
