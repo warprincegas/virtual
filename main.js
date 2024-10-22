@@ -31,10 +31,10 @@ const pointLabels = [
 ];
 
 const pointImages = [
+  "Abuja Central Mosgue.jpeg",
+  "Abuja Central Mosgue.jpeg",
   "Mpape-Crushed-rock.jpeg",
-  "Mpape-Crushed-rock.jpeg",
-  "Mpape-Crushed-rock.jpeg",
-  "Mpape-Crushed-rock.jpeg",
+  "Abuja Central Mosgue.jpeg",
 ];
 
 const container = document.querySelector(".image");
