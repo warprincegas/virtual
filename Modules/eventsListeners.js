@@ -18,6 +18,8 @@ export function events(controls, mouse, camera, renderer, raycaster) {
     document
       .querySelector(".controls-options")
       .classList.toggle("show-controls-option");
+    document.querySelector(".location-name").classList.toggle("hidden");
+    document.querySelector(".location-name").classList.toggle("flex");
     document
       .querySelector(".share-links-cont")
       .classList.remove("show-share-links-cont");
@@ -26,6 +28,8 @@ export function events(controls, mouse, camera, renderer, raycaster) {
   document
     .querySelector(".close-controls-options i")
     .addEventListener("click", () => {
+      document.querySelector(".location-name").classList.toggle("hidden");
+      document.querySelector(".location-name").classList.toggle("flex");
       document
         .querySelector(".controls-options")
         .classList.remove("show-controls-option");
@@ -51,22 +55,25 @@ export function events(controls, mouse, camera, renderer, raycaster) {
   document.querySelector(".share").addEventListener("click", () => {
     document.querySelector(
       ".share-links-cont"
-    ).innerHTML = ` <div class="share-link">
+    ).innerHTML = ` <div class="flex gap-[10px]">
         <a
           href="https://www.facebook.com/sharer/sharer.php?u=${window.location.href}"
           target="_blank"
+          class="text-xl text-white"
         >
-          <ion-icon name="logo-facebook"></ion-icon>
+          <ion-icon name="logo-facebook" ></ion-icon>
         </a>
         <a
           href="https://api.whatsapp.com/send?text=Check%20this%20out!%20${window.location.href}"
           target="_blank"
+          class="text-xl text-white"
         >
           <ion-icon name="logo-whatsapp"></ion-icon>
         </a>
         <a
           href="mailto:?subject=Check%20this%20out!&body=I%20found%20this%20interesting%20item%20on%20${window.location.href}"
           target="_blank"
+          class="text-xl text-white"
         >
           <ion-icon name="mail-unread-outline"></ion-icon>
         </a>
@@ -78,6 +85,8 @@ export function events(controls, mouse, camera, renderer, raycaster) {
     document
       .querySelector(".controls-options")
       .classList.remove("show-controls-option");
+    document.querySelector(".location-name").classList.add("flex");
+    document.querySelector(".location-name").classList.remove("hidden");
   });
 
   document

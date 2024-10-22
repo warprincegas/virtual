@@ -11,56 +11,111 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <style>
-      body {
-        margin: 0;
-      }
-      canvas {
-        display: block;
-      }
-    </style>
   </head>
-  <body>
+  <body class="overflow-hidden">
+    <!-- Loader -->
+    <div
+      class="fixed top-0 left-0 right-0 bottom-0 z-[200] flex justify-center items-center bg-stone-50 loader"
+    >
+      <div
+        class="fixed top-3 flex right-3 flex-col text-stone-500 font-semibold cursor-pointer z-[201]"
+      >
+        <small class="font-mono">Powered by</small>
+        <img src="logo.jpg" class="w-24 bg-white rounded-sm" alt="" />
+      </div>
+      <div class="w-full p-6 flex flex-col items-center justify-center">
+        <div class="loading-box max-w-[60px] m-8 hidden grid-cols-2 gap-[5px]">
+          <div class="loading-dot w-5 h-5 bg-green-400 rounded-full"></div>
+          <div class="loading-dot w-5 h-5 bg-green-400 rounded-full"></div>
+          <div class="loading-dot w-5 h-5 bg-green-400 rounded-full"></div>
+          <div class="loading-dot w-5 h-5 bg-green-300 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Rotate Message -->
+    <!-- <div
+      id="rotate-message"
+      class="flex fixed top-0 left-0 w-full h-full bg-black text-white text-2xl font-semibold justify-center items-center text-center z-[500] p-5 flex-col gap-10 rounded-sm"
+    >
+      <svg
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 32 32"
+        xml:space="preserve"
+        class="bg-white w-20 rotate-90"
+      >
+        <path
+          id="rotate--device_1_"
+          d="M24,23c-0.552,0-1-0.448-1-1s0.448-1,1-1s1,0.448,1,1S24.552,23,24,23z M24.64,30.64h-5.28V27h-0.72
+	v3.64H1.36V17.36H15v-0.72H1c-0.199,0-0.36,0.161-0.36,0.36v14c0,0.199,0.161,0.36,0.36,0.36h24c0.199,0,0.36-0.161,0.36-0.36v-4
+	h-0.72V30.64z M4.36,13c0-4.213,3.427-7.64,7.64-7.64h1.131l-2.385,2.386l0.509,0.509L14.509,5l-3.255-3.254l-0.509,0.509
+	l2.385,2.386H12c-4.61,0-8.36,3.75-8.36,8.36v2h0.72C4.36,15.001,4.36,13,4.36,13z M31.36,1v24c0,0.199-0.161,0.36-0.36,0.36H17
+	c-0.199,0-0.36-0.161-0.36-0.36V1c0-0.199,0.161-0.36,0.36-0.36h14C31.199,0.64,31.36,0.801,31.36,1z M30.64,19.36H17.36v5.279
+	h13.28V19.36z M30.64,1.36H17.36v17.28h13.28V1.36z"
+        />
+        <rect
+          id="_Transparent_Rectangle"
+          style="fill: none"
+          width="32"
+          height="32"
+        />
+      </svg>
+      <span>
+        Please rotate your device to landscape mode for the best experience.
+      </span>
+    </div> -->
+
     <section>
+      <!-- Point Message -->
       <div
         id="hover-content"
-        style="
-          position: absolute;
-          display: none;
-          background-color: rgb(30, 30, 30, 0.8);
-          color: white;
-          border-radius: 50px;
-          font-size: 0.8rem;
-          font-weight: 600;
-          padding: 5px;
-          z-index: 100;
-        "
+        class="absolute hidden bg-[rgba(0,0,0,.7)] text-white rounded-full text-xs font-semibold p-2 z-[100] text-center"
       ></div>
 
-      <!-- <div id="rotate-message" class="rotate-message">
-        Please rotate your device to landscape mode for the best experience.
-      </div> -->
-
+      <!-- 360 Image -->
       <div class="image"></div>
 
-      <div class="virtual-title">ABUJA CENTRAL MOSQUE</div>
-      <div class="buttom">
-        <span title="Home">
+      <!-- Loaction name -->
+      <div
+        class="text-white font-mono text-xl fixed top-2 right-2 bg-[rgba(30,30,30,.4)] rounded-lg font-semibold tracking-widest py-1 px-3 z-[100] location-name cursor-pointer"
+        style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3)"
+      >
+        ABUJA CENTRAL MOSQUE
+      </div>
+
+      <!-- Bottom navigation -->
+      <div
+        class="fixed bottom-4 w-full flex items-center justify-center gap-5 z-[100] h-fit text-[rgba(20,20,20,.8)]"
+      >
+        <span
+          title="Home"
+          class="bg-white h-12 w-12 flex justify-center items-center border-solid border-[rgba(255,255,255,.8)] border-2 cursor-pointer rounded-full duration-200 transition-bg z-[100] relative hover:bg-transparent"
+        >
           <i class="fa fa-home" aria-hidden="true"></i>
         </span>
-        <span title="Start Auto Tour" class="tour">
+        <span
+          title="Start Auto Tour"
+          class="bg-white h-12 w-12 flex justify-center items-center border-solid border-white border-2 cursor-pointer rounded-full duration-200 transition-bg z-[100] relative hover:bg-transparent tour"
+        >
           <i class="fa fa-play" aria-hidden="true"></i>
         </span>
-        <span title="Share" class="share">
+        <span
+          title="Share"
+          class="bg-white h-12 w-12 flex justify-center items-center border-solid border-white border-2 cursor-pointer rounded-full duration-200 transition-bg z-[100] relative hover:bg-transparent share"
+        >
           <i class="fa fa-share-alt" aria-hidden="true"></i>
         </span>
-        <span title="Enter Full Screen" class="screen-size">
+        <span
+          title="Enter Full Screen"
+          class="bg-white h-12 w-12 hidden justify-center items-center border-solid border-white border-2 cursor-pointer rounded-full duration-200 transition-bg z-[100] relative hover:bg-transparent screen-size sm:flex"
+        >
           <svg
-            width="800px"
-            height="800px"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            class="w-5"
           >
             <path
               d="M4 1.5C2.61929 1.5 1.5 2.61929 1.5 4V8.5C1.5 9.05228 1.94772 9.5 2.5 9.5H3.5C4.05228 9.5 4.5 9.05228 4.5 8.5V4.5H8.5C9.05228 4.5 9.5 4.05228 9.5 3.5V2.5C9.5 1.94772 9.05228 1.5 8.5 1.5H4Z"
@@ -80,52 +135,59 @@
             />
           </svg>
         </span>
-        <span title="Help" class="help">
+        <span
+          title="Help"
+          class="bg-white h-12 w-12 flex justify-center items-center border-solid border-white border-2 cursor-pointer rounded-full duration-200 transition-bg z-[100] relative hover:bg-transparent help"
+        >
           <i class="fa fa-question" aria-hidden="true"></i>
         </span>
       </div>
-      <div class="powered">
-        <small>Powered by</small>
-        <img src="logo.jpg" alt="" />
-      </div>
-      <div class="cover"></div>
-      <div class="controls-options">
-        <div class="close-controls-options">
-          <i class="fa fa-times" aria-hidden="true" title="Close"></i>
+
+      <!-- <div
+        class="fixed top-3 flex right-3 flex-col text-stone-500 font-semibold cursor-pointer z-[201]"
+      >
+        <small class="font-mono">Powered by</small>
+        <img src="logo.jpg" class="w-24 bg-white rounded-sm" alt="" />
+      </div> -->
+
+      <div
+        class="controls-options bg-[rgba(24,24,24,0.8)] fixed top-0 bottom-0 right-0 left-0 py-10 px-5 flex flex-col items-center text-white"
+      >
+        <div class="close-controls-options absolute right-8">
+          <i
+            class="fa fa-times text-xl font-semibold cursor-pointer"
+            aria-hidden="true"
+            title="Close"
+            style="text-shadow: 0 4px 8px rgb(63, 61, 61)"
+          ></i>
         </div>
-        <div class="controls-options-title">ALL CONTROLS</div>
-        <div class="controls-options-content-cont">
-          <div class="controls-options-content-header">
-            <span>Orbit navigation</span>
+        <div
+          class="w-fit pb-1 text-center text-white font-bold font-serif border-b-2 border-solid border-[rgb(23,103,207)] text-xl"
+        >
+          ALL CONTROLS
+        </div>
+
+        <div class="w-full">
+          <div
+            class="border-b-2 border-gray-600 border-solid w-full pb-[5px] mb-2 mt-10"
+          >
+            <span class="font-bold text-lg">Orbit navigation</span>
           </div>
-          <div class="controls-options-content">
-            <ul class="controls-options-types-navs">
-              <li>
+
+          <div class="flex font-sans font-semibold text-xl mt-[5px]">
+            <ul class="flex flex-col gap-[10px] w-fit list-none">
+              <li class="flex gap-[20px]">
                 <span>Move camera:</span>
                 <small>Double click and hold to move</small>
-              </li>
-
-              <li>
-                <span>Pan:</span>
-                <small>
-                  2-finger drag or Right Mouse Button + Cursor Movement
-                </small>
-              </li>
-              <li>
-                <span>Zoom on object:</span>
-                <small>For now we can not Zoom</small>
-              </li>
-
-              <li>
-                <span>Zoom out:</span>
-                <small> For now we can not Zoom </small>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div class="share-links-cont"></div>
+      <div
+        class="share-links-cont absolute h-fit rounded-md w-fit left-2 p-[10px] flex justify-center items-center transition-all duration-300 top-2"
+      ></div>
     </section>
 
     <script
