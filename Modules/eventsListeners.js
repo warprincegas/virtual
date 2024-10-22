@@ -38,14 +38,14 @@ export function events(controls, mouse, camera, renderer, raycaster) {
   document.querySelector(".tour").addEventListener("click", () => {
     const tourIcon = document.querySelector(".tour i");
 
-    if (tourIcon.classList.contains("fa-pause")) {
-      tourIcon.classList.replace("fa-pause", "fa-play");
-      document.querySelector(".tour").setAttribute("title", "Start Auto Tour");
-      controls.autoRotate = false;
-    } else {
+    if (tourIcon.classList.contains("fa-play")) {
       tourIcon.classList.replace("fa-play", "fa-pause");
       document.querySelector(".tour").setAttribute("title", "Stop Auto Tour");
       controls.autoRotate = true;
+    } else {
+      tourIcon.classList.replace("fa-pause", "fa-play");
+      document.querySelector(".tour").setAttribute("title", "Star Auto Tour");
+      controls.autoRotate = false;
     }
   });
   // document.querySelector(".tour").addEventListener("click", () => {

@@ -12,10 +12,11 @@ import {
 
 window.addEventListener("load", () => {
   startLoadingAnimation();
+
   setTimeout(() => {
     stopLoadingAnimation();
     document.querySelector(".loader").classList.toggle("hidden");
-  }, 5000);
+  }, 4000);
 });
 
 let camera, scene, renderer, controls, raycaster, mouse;
@@ -73,6 +74,7 @@ controls.enableDamping = true;
 controls.enableZoom = true;
 controls.dampingFactor = 0.05;
 controls.screenSpacePanning = true;
+controls.autoRotate = true;
 // events(controls);
 
 raycaster = new THREE.Raycaster();
