@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     stopLoadingAnimation();
     document.querySelector(".loader").classList.toggle("hidden");
-  }, 3000);
+  }, 5000);
 });
 
 let camera, scene, renderer, controls, raycaster, mouse;
