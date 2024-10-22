@@ -74,7 +74,7 @@ controls.enableDamping = true;
 controls.enableZoom = true;
 controls.dampingFactor = 0.05;
 controls.screenSpacePanning = true;
-controls.autoRotate = true;
+// controls.autoRotate = true;
 // events(controls);
 
 raycaster = new THREE.Raycaster();
