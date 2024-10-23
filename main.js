@@ -216,5 +216,5 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     stopLoadingAnimation();
     document.querySelector(".loader").classList.toggle("hidden");
-  }, 4000);
+  }, 3000);
 });
