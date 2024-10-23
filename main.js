@@ -3,10 +3,6 @@ import "./style.css";
 import gsap from "gsap";
 import { events } from "./Modules/eventsListeners.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import {
-  startLoadingAnimation,
-  stopLoadingAnimation,
-} from "./Modules/loader.js";
 
 let camera, scene, renderer, controls, raycaster, mouse;
 let points = [];
@@ -25,6 +21,26 @@ const pointImages = [
   "Mpape-Crushed-rock.jpeg",
   "Abuja Central Mosgue.jpeg",
 ];
+
+const spinner = document.querySelector(".loader");
+
+// Create a loading manager
+const loadingManager = new THREE.LoadingManager();
+
+// When all resources are loaded, hide the spinner
+loadingManager.onLoad = function () {
+  spinner.classList.add("hidden");
+};
+
+// Optional: You can also listen for progress updates
+loadingManager.onProgress = function (url, itemsLoaded, itemsTotal) {
+  console.log(`Loaded ${itemsLoaded} of ${itemsTotal} files`);
+};
+
+// // Optional: Handle loading error
+// loadingManager.onError = function (url) {
+//   console.error('There was an error loading:', url);
+// };
 
 // function pageScene() {
 const container = document.querySelector(".image");
@@ -45,7 +61,7 @@ renderer.setPixelRatio(window.devicePixelRatio / 2);
 renderer.setSize(window.innerWidth, window.innerHeight);
 container.appendChild(renderer.domElement);
 
-const textureLoader = new THREE.TextureLoader();
+const textureLoader = new THREE.TextureLoader(loadingManager);
 const texture = textureLoader.load("Abuja Central Mosgue.jpeg");
 
 const geometry = new THREE.SphereGeometry(500, 60, 40);
@@ -208,13 +224,3 @@ window.addEventListener("touchend", onTouchEnd);
 // }
 
 //Loader Function
-
-window.addEventListener("load", () => {
-  startLoadingAnimation();
-  // pageScene();
-
-  setTimeout(() => {
-    stopLoadingAnimation();
-    document.querySelector(".loader").classList.toggle("hidden");
-  }, 4000);
-});
