@@ -11,6 +11,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body class="overflow-hidden">
     <!-- Loader -->
@@ -21,7 +22,12 @@
         class="fixed top-3 flex right-3 flex-col text-stone-500 font-semibold cursor-pointer z-[201]"
       >
         <small class="font-mono">Powered by</small>
-        <img src="logo.jpg" class="w-24 bg-white rounded-sm" alt="" />
+        <img
+          src="logo.jpg"
+          class="w-24 bg-white rounded-sm"
+          loading="lazy"
+          alt=""
+        />
       </div>
       <div class="w-full p-6 flex flex-col items-center justify-center">
         <div class="loading-box max-w-[60px] m-8 hidden grid-cols-2 gap-[5px]">
@@ -206,6 +212,6 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-    <script src="main.js" type="module"></script>
+    <script src="main.js" type="module" defer></script>
   </body>
 </html>

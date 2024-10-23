@@ -50,7 +50,8 @@ camera = new THREE.PerspectiveCamera(
 );
 camera.position.set(0, 0, 0.1);
 
-renderer = new THREE.WebGLRenderer();
+renderer = new THREE.WebGLRenderer({ antialias: false }); // Disabled anti-aliasing for performance
+renderer.setPixelRatio(window.devicePixelRatio / 2);
 renderer.setSize(window.innerWidth, window.innerHeight);
 container.appendChild(renderer.domElement);
 
