@@ -36,22 +36,18 @@ export function events(controls, mouse, camera, renderer, raycaster) {
     });
 
   document.querySelector(".tour").addEventListener("click", () => {
-    const tourIcon = document.querySelector(".tour i");
+    const tourIcon = document.querySelector(".tour ion-icon");
 
-    if (tourIcon.classList.contains("fa-pause")) {
-      tourIcon.classList.replace("fa-pause", "fa-play");
-      document.querySelector(".tour").setAttribute("title", "Start Auto Tour");
-      controls.autoRotate = false;
-    } else {
-      tourIcon.classList.replace("fa-play", "fa-pause");
+    if (tourIcon.name === "play-outline") {
+      tourIcon.name = "pause-outline";
       document.querySelector(".tour").setAttribute("title", "Stop Auto Tour");
       controls.autoRotate = true;
+    } else {
+      tourIcon.name = "play-outline";
+      document.querySelector(".tour").setAttribute("title", "Start Auto Tour");
+      controls.autoRotate = false;
     }
   });
-  // document.querySelector(".tour").addEventListener("click", () => {
-  //   !newAnimate();
-  // });
-
   document.querySelector(".share").addEventListener("click", () => {
     document
       .querySelector(".share-links-cont")

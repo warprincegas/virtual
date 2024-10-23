@@ -19,7 +19,6 @@
 .controls-options {
   z-index: 0;
   transform: scale(0);
-  border-radius: 50%;
   opacity: 0;
   transition: z-index 0.5s, transform 0.5s, border-radius 0.5s, opacity 0.5s;
 }
@@ -27,7 +26,6 @@
 .show-controls-option {
   z-index: 20;
   transform: scale(1);
-  border-radius: 0px;
   transition: z-index 0.5s, transform 0.5s, border-radius 0.5s, opacity 0.5s;
   opacity: 1;
 }
