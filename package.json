@@ -16,6 +16,10 @@
   },
   "dependencies": {
     "gsap": "^3.12.5",
+    "jquery-circle-progress": "^1.2.2",
+    "progress-circle": "^1.1.1",
+    "progressbar.js": "^1.1.1",
+    "radial-progress": "^0.1.0",
     "three": "^0.169.0",
     "three-stdlib": "^2.33.0"
   }

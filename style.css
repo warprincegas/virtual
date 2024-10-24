@@ -2,41 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-.rotate {
-  animation: rotate 1s ease-in-out infinite alternate;
+section {
+  /* @apply bg-cover bg-center  bg-no-repeat; */
 }
 
-/* Keyframes */
-@keyframes rotate {
-  0% {
-    transform: rotate(deg0) scale(1);
-  }
-  100% {
-    transform: rotate(360deg) scale(0.7);
-  }
+.home-img {
+  background: url("/VTN-WEBSITE-TOUR-NIGERIA.jpg");
+  @apply bg-cover bg-center  bg-no-repeat;
 }
 
-.controls-options {
-  z-index: 0;
-  transform: scale(0);
-  opacity: 0;
-  transition: z-index 0.5s, transform 0.5s, border-radius 0.5s, opacity 0.5s;
+.entertainment {
+  background: url("/VTN-ENTERTAINMENT-WEBSITE-FORMAT.jpg");
+  @apply bg-cover bg-left  bg-no-repeat;
+}
+.event {
+  background: url("/VTN-OWAMBE WEBSITE-FORMAT.jpg");
+  @apply bg-cover bg-center  bg-no-repeat;
+}
+.edu-trip {
+  background: url("/VTN-EDUCATION-WEBSITE-FORMAT.jpg");
+  @apply bg-cover bg-center  bg-no-repeat;
 }
 
-.show-controls-option {
-  z-index: 20;
-  transform: scale(1);
-  transition: z-index 0.5s, transform 0.5s, border-radius 0.5s, opacity 0.5s;
-  opacity: 1;
+.real-estate {
+  background: url("/VTN-REAL-ESTATE-WEBSITE-FORMAT.jpg");
+  @apply bg-cover bg-right  bg-no-repeat;
 }
 
-.share-links-cont {
-  z-index: 0;
-  opacity: 0;
+.vr-img {
+  background: url("/edutrips.png");
+  @apply bg-cover bg-right bg-no-repeat;
 }
 
-.show-share-links-cont {
-  opacity: 1;
-  z-index: 20;
-  transition: opacity 0.4s, z-index 0.4s;
+.text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 1s ease-in-out;
+  cursor: pointer;
+}
+
+.text-container:hover .text {
+  -webkit-line-clamp: unset;
+  white-space: normal;
+  overflow: visible;
+}
+
+.dev-process {
+  background: url("/istockphoto-599471112-612x612 (1).webp");
+  @apply bg-cover bg-center  bg-no-repeat;
+}
+
+.about-img {
+  background: url("/about-pics.png");
+  @apply bg-cover bg-center  bg-no-repeat;
+}
+
+.vision {
+  background: url("/istockphoto-1424988699-612x612.webp");
+  @apply bg-cover bg-center  bg-no-repeat;
+}
+
+.mission {
+  background: url("/istockphoto-2094337676-612x612.webp");
+  @apply bg-cover bg-center  bg-no-repeat;
+}
+
+.goal {
+  background: url("/istockphoto-2148853397-612x612.webp");
+  @apply bg-cover bg-center  bg-no-repeat;
+}
+
+.contact {
+  background: url("/istockphoto-618761378-612x612.webp");
+  @apply bg-cover bg-center  bg-no-repeat;
+}
+
+label {
+  @apply relative flex;
+}
+
+input,
+textarea {
+  @apply pb-2 focus:outline-none outline-none placeholder:text-lg flex-1 border-b-[1px] border-solid border-stone-400;
+}
+
+label ion-icon {
+  @apply absolute right-2 bottom-2;
 }
