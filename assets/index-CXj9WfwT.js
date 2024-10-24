@@ -1,4 +1,4 @@
-(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const l of t.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&n(l)}).observe(document,{childList:!0,subtree:!0});function c(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function n(e){if(e.ep)return;e.ep=!0;const t=c(e);fetch(e.href,t)}})();function s(){return`
+(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const o of t.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&n(o)}).observe(document,{childList:!0,subtree:!0});function r(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function n(e){if(e.ep)return;e.ep=!0;const t=r(e);fetch(e.href,t)}})();function s(){return`
            <section class="h-[60vh] bg-center mt-20  md:mt-0 flex justify-center items-cente flex-col text-center home-img lg:h-[85vh] md:h-[70vh]">
         <div class="bg-[rgba(23,23,23,.65)] h-full flex justify-center items-center  flex-col gap-4 p-8 md:bg-gradient-to-b from-[rgba(23,23,23,7)]  to-[rgba(23,23,23,.5)] ">
 
@@ -101,7 +101,7 @@
       </section>
 
    
-  `}function a(){return`       <section class="h-[45vh] bg-center mt-28 about-img md:mt-0 md:h-[60vh] lg:h-[80vh]">
+  `}function c(){return`       <section class="h-[45vh] bg-center mt-28 about-img md:mt-0 md:h-[60vh] lg:h-[80vh]">
         <div class="bg-[rgba(23,23,23,.65)] h-full flex justify-center items-start  flex-col p-8  md:bg-gradient-to-b from-[rgba(23,23,23,7)]  to-[rgba(23,23,23,.5)] md:items-center">
 
         <h1 class="font-bold text-4xl tracking-wider">Hello!<h1>
@@ -155,7 +155,7 @@
       </main>`}function d(){return`
           <section class="contact mt-20 md:mt-0">
         <div
-          class="bg-[rgba(23,23,23,.7)] h-full flex justify-center items-start flex-col gap-4 px-8 py-28 md:bg-gradient-to-b from-[rgba(23,23,23,7)] to-[rgba(23,23,23,.5)] lg:h-[60vh] lg:items-center"
+          class="bg-[rgba(23,23,23,.7)] h-full flex justify-center items-start flex-col gap-4 px-8 py-28 md:bg-gradient-to-b from-[rgba(23,23,23,7)] to-[rgba(23,23,23,.5)] lg:h-[65vh] lg:items-center"
         >
           <h1 class="font-bold text-4xl tracking-wider">Contact us</h1>
           <div class="flex flex-col lg:justify-center lg:items-center">
@@ -190,6 +190,7 @@
               name="Message"
               maxlength="50"
               placeholder="Your Message"
+              cols="30" rows="10" 
             ></textarea>
             <ion-icon name="chatbox-ellipses-outline"></ion-icon>
           </label>
@@ -232,4 +233,4 @@
           </div>
         </div>
       </section>
-  `}const g={"/":s,"/about":a,"/contact":d};console.log(a);function r(){const o=location.hash.slice(1)||"/",i=g[o]||s;document.getElementById("app").innerHTML=i(),console.log(document.querySelector("body"))}window.addEventListener("hashchange",r);window.addEventListener("load",r);
+  `}const g={"/":s,"/about":c,"/contact":d};document.addEventListener("DOMContentLoaded",function(){const l=document.querySelector(".loader"),i=document.getElementById("app");setTimeout(()=>{l.style.display="none",i.style.display="block"},3e3)});function a(){const l=location.hash.slice(1)||"/",i=g[l]||s;document.getElementById("app").innerHTML=i(),console.log(document.querySelector("body"))}window.addEventListener("hashchange",a);window.addEventListener("load",a);
