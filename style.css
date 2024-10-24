@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-section {
-  /* @apply bg-cover bg-center  bg-no-repeat; */
-}
-
 .home-img {
   background: url("/VTN-WEBSITE-TOUR-NIGERIA.jpg");
   @apply bg-cover bg-center  bg-no-repeat;
@@ -91,4 +87,17 @@ textarea {
 
 label ion-icon {
   @apply absolute right-2 bottom-2;
+}
+
+.rotate {
+  animation: rotate 1s ease-in-out infinite alternate;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(deg0) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(0.7);
+  }
 }

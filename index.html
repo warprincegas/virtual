@@ -46,6 +46,21 @@
       </ul>
     </nav>
 
+    <div
+      class="fixed top-0 left-0 right-0 bottom-0 z-[1] flex justify-center items-center bg-stone-50 loader"
+    >
+      <div class="w-full p-6 flex flex-col items-center justify-center">
+        <div
+          class="loading-box max-w-[60px] m-8 rotate grid grid-cols-2 gap-[5px]"
+        >
+          <div class="loading-dot w-5 h-5 bg-green-400 rounded-full"></div>
+          <div class="loading-dot w-5 h-5 bg-green-400 rounded-full"></div>
+          <div class="loading-dot w-5 h-5 bg-green-400 rounded-full"></div>
+          <div class="loading-dot w-5 h-5 bg-green-300 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+
     <div id="app" class="text-stone-200 md:text-stone-300"></div>
     <footer
       class="bg-gradient-to-b from-black to-[rgb(23,23,23)] px-12 pt-20 flex flex-col items-start gap-5 text-stone-200 md:px-0"
@@ -88,12 +103,5 @@
       >
     </footer>
     <script type="module" src="main.js" defer></script>
-    <script>
-      // document.querySelector(".contact-link")?.addEventListener("click", () => {
-      //   document
-      //     .querySelector(".contact-link")
-      //     .setAttribute("href", "#/contact");
-      // });
-    </script>
   </body>
 </html>
